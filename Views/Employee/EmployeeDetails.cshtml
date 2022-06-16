@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DataFromAPI_Mvc.Models.Employee>
+
+@{
+    ViewData["Title"] = "EmployeeDetails";
+}
+
+<h1>ProductDetails</h1>
+
+<p>
+    <a asp-action="AddEmployee">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Eid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deptid)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deptid)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "UpdateEmployee", new {  id=item.Eid }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Eid }) |
+                @Html.ActionLink("Delete", "DeleteEmployee", new { id=item.Eid })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
